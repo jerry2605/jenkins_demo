@@ -7,10 +7,21 @@ pipeline {
   }
   stages {
     stage('Deploy - Staging') {
-      steps {
-        echo 'staging'
-        echo 'run-smoke-tests'
-        sh 'python3 --version'
+      parallel {
+        stage('Deploy - Staging') {
+          steps {
+            echo 'staging'
+            echo 'run-smoke-tests'
+            sh 'python3 --version'
+          }
+        }
+
+        stage('staging 2') {
+          steps {
+            echo 'This is staging 2'
+          }
+        }
+
       }
     }
 
