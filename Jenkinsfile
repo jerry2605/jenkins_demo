@@ -1,10 +1,16 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'python:rc-alpine'
+    }
+
+  }
   stages {
     stage('Deploy - Staging') {
       steps {
         echo 'staging'
         echo 'run-smoke-tests'
+        sh 'python3 --version'
       }
     }
 
