@@ -19,6 +19,7 @@ pipeline {
         stage('Deploy - Production') {
             steps {
                 echo 'deploy production'
+                sh 'pwd'
             }
         }
     }
